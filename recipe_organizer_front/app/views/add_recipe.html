@@ -1,0 +1,57 @@
+<div class="col-md-6">
+    <label>Recipe Name</label>
+    <input class="form-control" type="text" ng-model="recipe.name">
+</div>
+
+<div class="col-md-2">
+    <label>Prep Time</label>
+    <input class="form-control" type="text" ng-model="recipe.prep_time">
+</div>
+
+<div class="col-md-6">
+    <label>Description</label>
+    <textarea
+            type="text"
+            ng-model="recipe.description"
+            placeholder="Why is this a great recipe? Does it have a history?"
+            class="form-control"
+            rows="10">
+    </textarea>
+</div>
+
+<div class="col-md-6">
+    <label>Instructions</label>
+    <textarea
+            type="text"
+            ng-model="recipe.instructions"
+            placeholder="Tell us how to make your Mancipe"
+            class="form-control"
+            rows="10">
+    </textarea>
+</div>
+
+<div class="col-md-2">
+    <label>Cook Time</label>
+    <input class="form-control margin-bottom-20" type="text" ng-model="recipe.cook_time">
+</div>
+
+
+<div class="col-md-3 clear">
+    <label>Ingredients</label>
+    <input class="form-control form-inline"
+           type="text"
+           ng-model="ingredientName"
+           typeahead="ingredient.name for ingredient in ingredients | filter:$viewValue | limitTo:20"
+           placeholder="Enter an Ingredient">
+
+    <ol>
+        <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+    </ol>
+</div>
+
+<div class="col-md-1">
+                <label>&nbsp;</label>
+                <button ng-click="saveNewRecipe()"
+                        class="add-tag-button btn btn-sm btn-info">Add this Recipe
+                </button>
+            </div>
